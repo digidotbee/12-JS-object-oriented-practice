@@ -69,12 +69,16 @@ function Dog(obj) {
 console.log (Dog)
 
 function Human(obj) {
-  if (this.cool === undefined){
-    this.cool = false
+  this.cool = obj && obj.cool !== undefined ? obj.cool : false
+  if (obj && obj.cool !== undefined){
+    this.cool = obj.cool
   } else {
-    this.cool = true
+    this.cool = false
   }
 }
+
+Human.prototype.pet= (obj) => {obj.status = "happy"}
+Human.prototype.feed= (obj) => {obj.hungry = "false"}
 
 //        __
 //   ____/ /___  ____ ______
